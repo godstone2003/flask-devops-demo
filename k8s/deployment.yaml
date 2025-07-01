@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flask-demo
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: flask-demo
+  template:
+    metadata:
+      labels:
+        app: flask-demo
+    spec:
+      containers:
+      - name: flask-demo
+        image: godstone7o1/flask-devops-demo:latest
+        ports:
+        - containerPort: 5000
